@@ -3,7 +3,8 @@
   padding: 0;
   box-sizing: border-box;
   /* background-color: #0e1217; */
-  color: whitesmoke;
+  background-color: rgb(226, 224, 224);
+  color: black;
   font-family: 'Poppins';
 }
 
