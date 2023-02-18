@@ -1,14 +1,18 @@
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #0e1217;
+  /* background-color: #0e1217; */
   color: whitesmoke;
   font-family: 'Poppins';
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 h1 {

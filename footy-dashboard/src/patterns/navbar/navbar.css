@@ -1,0 +1,23 @@
+#navbar {
+    height: 6rem;
+    padding: 1rem 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+#navbar ul {
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+    font-weight: 500;
+}
+
+#navbar ul li a {
+    color: grey;
+}
+
+#navbar ul li a.active, #navbar ul li a:focus {
+    color: black;
+    font-weight: 600;
+}
