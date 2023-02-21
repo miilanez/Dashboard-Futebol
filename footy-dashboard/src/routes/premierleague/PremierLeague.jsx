@@ -6,6 +6,8 @@ import { Grid } from "@mui/material";
 //imports components
 import Standings from "../../components/standings/Standings";
 import PageTitle from "../../components/pageTitle/PageTitle";
+import MainNotice from "../../components/news/MainNotice";
+import News from "../../components/news/News";
 
 //imports api
 import useStandings from "../../services/api/premierleague/useStandings";
@@ -153,10 +155,12 @@ const PremierLeague = () => {
           <Grid sx={{ backgroundColor: "blue" }}>Container</Grid>
         </div>
         <div>
+          {/* <MainNotice data={news} /> */}
           <Grid sx={{ backgroundColor: "red" }}>Container</Grid>
         </div>
         <div>
-          <Grid sx={{ backgroundColor: "blue" }}>Container</Grid>
+          {/* <News data={news} /> */}
+          <Grid sx={{ backgroundColor: "yellow" }}>Container</Grid>
         </div>
       </div>
 
