@@ -12,7 +12,7 @@ const columns = [
     field: "Position",
     align: "center",
     width: 10,
-    headerName: "Position",
+    headerName: "Pos",
     headerAlign: "center",
   },
   {
@@ -36,38 +36,38 @@ const columns = [
   {
     field: "Points",
     align: "center",
-    headerName: "Points",
+    headerName: "Pts",
     headerAlign: "center",
     fontWeight: "600",
   },
   {
     field: "Played",
     align: "center",
-    headerName: "Played",
+    headerName: "Pl",
     headerAlign: "center",
   },
   {
     field: "Winned",
     align: "center",
-    headerName: "Winned",
+    headerName: "W",
     headerAlign: "center",
   },
   {
     field: "Tie",
     align: "center",
-    headerName: "Tie",
+    headerName: "T",
     headerAlign: "center",
   },
   {
     field: "Loosed",
     align: "center",
-    headerName: "Loosed",
+    headerName: "L",
     headerAlign: "center",
   },
   {
     field: "Goal Difference",
     align: "center",
-    headerName: "Difference",
+    headerName: "GD",
     headerAlign: "center",
   },
 ];

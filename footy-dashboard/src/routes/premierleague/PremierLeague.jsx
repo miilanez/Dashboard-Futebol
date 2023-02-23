@@ -15,6 +15,7 @@ import News from "../../components/news/News";
 import usePremierLeague from "../../services/api/premierleague/usePremierLeague";
 
 import PlayerImage from "../../components/playerImage/PlayerImage";
+import Matches from "../../components/macthes/Matches";
 
 const PremierLeague = () => {
   //Request Standings
@@ -184,10 +185,8 @@ const PremierLeague = () => {
       </div>
 
       <div className="downner-container">
+        <Matches />
         <Standings data={standing} title="Premier League" />
-        <div>
-          <Grid sx={{ backgroundColor: "green" }}>Container</Grid>
-        </div>
       </div>
     </div>
   );

@@ -67,7 +67,7 @@
     justify-content: space-around;
     width: 65%;
     background-color: transparent;
-    align-content: start;
+    align-content: flex-start;
     text-align: start;
 }
 
