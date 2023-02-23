@@ -3,6 +3,8 @@ import "./style.css";
 import { useState, useEffect } from "react";
 import { Grid } from "@mui/material";
 
+import Haaland from "../../assets/images/premierleague/playerHaaland.png";
+
 //imports components
 import Standings from "../../components/standings/Standings";
 import PageTitle from "../../components/pageTitle/PageTitle";
@@ -10,17 +12,15 @@ import MainNotice from "../../components/news/MainNotice";
 import News from "../../components/news/News";
 
 //imports api
-import useStandings from "../../services/api/premierleague/useStandings";
-import useTransfers from "../../services/api/premierleague/useTransfers";
-import useNews from "../../services/api/premierleague/useNews";
-import useFixtures from "../../services/api/premierleague/useFixtures";
-import useResults from "../../services/api/premierleague/useResults";
+import usePremierLeague from "../../services/api/premierleague/usePremierLeague";
+
+import PlayerImage from "../../components/playerImage/PlayerImage";
 
 const PremierLeague = () => {
   //Request Standings
 
   const [standing, setStanding] = useState([]);
-  const { getStandings } = useStandings();
+  const { getStandings } = usePremierLeague();
 
   useEffect(() => {
     async function fetch() {
@@ -44,7 +44,7 @@ const PremierLeague = () => {
   //Request Transfers
 
   const [transfers, setTransfer] = useState([]);
-  const { getTransfers } = useTransfers();
+  const { getTransfers } = usePremierLeague();
 
   useEffect(() => {
     async function fetch() {
@@ -70,7 +70,7 @@ const PremierLeague = () => {
   //Request News
 
   const [news, setNews] = useState([]);
-  const { getNews } = useNews();
+  const { getNews } = usePremierLeague();
 
   useEffect(() => {
     async function fetch() {
@@ -96,7 +96,7 @@ const PremierLeague = () => {
   //Request Fixtures
 
   const [fixtures, setFixtures] = useState([]);
-  const { getFixtures } = useFixtures();
+  const { getFixtures } = usePremierLeague();
 
   useEffect(() => {
     async function fetch() {
@@ -117,12 +117,12 @@ const PremierLeague = () => {
     }
   }, [getFixtures]);
 
-  console.log("partidas", fixtures);
+  // console.log("partidas", fixtures);
 
   //Request Results
 
   const [results, setResults] = useState([]);
-  const { getResults } = useResults();
+  const { getResults } = usePremierLeague();
 
   useEffect(() => {
     async function fetch() {
@@ -143,24 +143,43 @@ const PremierLeague = () => {
     }
   }, [getResults]);
 
-  console.log("resultados", results);
+  // console.log("resultados", results);
 
   //Request Squadname
+  const [squadname, setSquadname] = useState([]);
+  const { getSquadname } = usePremierLeague();
+
+  useEffect(() => {
+    async function fetch() {
+      try {
+        const dados = await getSquadname();
+        setSquadname(dados);
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
+    function firstRequest() {
+      fetch();
+    }
+
+    if (firstRequest) {
+      firstRequest = false;
+      fetch();
+    }
+  }, [getSquadname]);
 
   return (
     <div className="main-container">
       <PageTitle title="Premier League" />
       <div className="upper-container">
-        <div>
-          <Grid sx={{ backgroundColor: "blue" }}>Container</Grid>
+        <div className="player-league-img">
+          <PlayerImage playerImg={Haaland} />
         </div>
         <div>
-          {/* <MainNotice data={news} /> */}
-          <Grid sx={{ backgroundColor: "red" }}>Container</Grid>
+          <MainNotice data={news} />
         </div>
         <div>
-          {/* <News data={news} /> */}
-          <Grid sx={{ backgroundColor: "yellow" }}>Container</Grid>
+          <News data={news} />
         </div>
       </div>
 

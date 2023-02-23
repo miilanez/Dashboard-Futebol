@@ -1,0 +1,8 @@
+.footer-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-content {
+    padding: 1rem;
+}

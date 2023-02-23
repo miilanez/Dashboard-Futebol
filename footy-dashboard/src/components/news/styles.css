@@ -1,12 +1,91 @@
-.news-container {
-    background-color: blueviolet;
+/* NOTICIA PRINCIPAL */
+
+.main-news-container {
+    width: 99%;
+    height: 400px;
+    background-image: url("../../assets/images/example.png");
+    /* background-image: url(${data[0]?.Image}); */
+    border-radius: 15px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: 100%;
+    /* overflow: hidden; */
 }
 
-.main-notice {
-    background-color: greenyellow;
+.main-news-content {
+    max-width: 95%;
+    background-color: transparent;
+    position: absolute;
+    bottom: 20px;
 }
 
-.main-image {
+.main-news-content .main-news-title {
+    background-color: #000000c2;
+    border-radius: 10px;
+    color: whitesmoke;
+    padding: 5px;
+}
+
+/* MAIS NOTICIAS */
+
+.notices {
     width: 100%;
-    background-color: aqua;
+    max-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-news {
+    width: 100%;
+    min-height: 184px;
+    border-radius: 15px;
+    background-color: white;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.card-image {
+    width: 30%;
+    height: 130px;
+    background-image: url("../../assets/images/example.png");
+    /* background-image: url(${data[0]?.Image}); */
+    border-radius: 15px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 65%;
+    background-color: transparent;
+    align-content: start;
+    text-align: start;
+}
+
+.news-title {
+    background-color: transparent;
+}
+
+.read-news-button {
+    width: 100px;
+    background-color: rgb(226, 224, 224);
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.read-news-button:hover {
+    background-color: rgb(29, 29, 29);
+    color: white;
+    transition: 0.3s;
 }
