@@ -6,7 +6,8 @@ import { TableContainer } from "@mui/material";
 import Match from "./Match";
 
 const Fixtures = ({ data = [] }) => {
-  let matchday = data[0] ? Object.values(data[0]).splice(-1)?.[0] : [];
+  //Captando o objeto que reune os dados da próxima rodada 
+  let matchday = data[0] ? Object.values(data[0]).splice(0)?.[0] : [];
 
   return (
     <div className="container-results">

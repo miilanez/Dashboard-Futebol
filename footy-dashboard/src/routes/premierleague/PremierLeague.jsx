@@ -1,4 +1,4 @@
-import "./style.css";
+import "../style.css";
 
 import { useState, useEffect } from "react";
 
@@ -138,6 +138,8 @@ const PremierLeague = () => {
     }
   }, [getFixtures]);
 
+  console.log("fixtures", fixtures)
+
   //Request Results
 
   const [results, setResults] = useState([]);
@@ -162,7 +164,7 @@ const PremierLeague = () => {
     }
   }, [getResults]);
 
-  // console.log("resultados", results);
+  console.log("resultados", results);
 
   return (
     <div className="main-container">
