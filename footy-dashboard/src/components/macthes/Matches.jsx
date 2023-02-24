@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import "./styles.css";
+import { useState, useEffect } from "react";
+
+//import components
 import Fixtures from "./Fixtures";
 import Results from "./Results";
-import "./styles.css";
 
-const Matches = () => {
+const Matches = ({ results = [], fixtures = [] }) => {
+
+  // state da Rednerização Condicional
+
   const [value, setValue] = useState("1");
 
   const handleResults = () => {
@@ -18,17 +23,17 @@ const Matches = () => {
     <div value={value} className="matches-container">
       <div className="tab-buttons">
         <button onClick={handleResults} value="1">
-          Results
+          <h3>Results</h3>
         </button>
         <button onClick={handleFixtures} value="2">
-          Fixtures
+          <h3>Fixtures</h3>
         </button>
       </div>
       <div className="renderized-area">
         {value === "1" ? (
-          <Results />
+          <Results data={results} />
         ) : value === "2" ? (
-          <Fixtures />
+          <Fixtures data={fixtures} />
         ) : (
           "Nada a Carregar"
         )}

@@ -10,24 +10,30 @@ const News = ({ data = [] }) => {
         {/* {data &&
           notices.map((index) => ( */}
         <div className="card-news">
-          <div className="card-image">
-            <a rel="noopener noreferrer" href={data[1]?.NewsLink}>
-              {/* <img className="main-news-image" src={data[0]?.Image}  /> */}
-            </a>
+          <div
+            className="card-image"
+            style={{ backgroundImage: `url(${data[1]?.Image})` }}
+          >
+            {/* Inside */}
           </div>
           <div className="card-content">
-            <h2 className="news-title">Card News</h2>
-            <button className="read-news-button">Leia Mais</button>
+            <a rel="noopener noreferrer" href={data[1]?.NewsLink}>
+              <h3 className="news-title">{data[1]?.Title}</h3>
+            </a>
           </div>
         </div>
+
         <div className="card-news">
-          <div className="card-image">
-            <a rel="noopener noreferrer" href={data[2]?.NewsLink}>
-              {/* <img className="main-news-image" src={data[0]?.Image}  /> */}
-            </a>
+          <div
+            className="card-image"
+            style={{ backgroundImage: `url(${data[2]?.Image})` }}
+          >
+            {/* Inside */}
           </div>
           <div className="card-content">
-            <h2 className="news-title">Card News</h2>
+            <a rel="noopener noreferrer" href={data[2]?.NewsLink}>
+              <h3 className="news-title">{data[2]?.Title}</h3>
+            </a>
           </div>
         </div>
 

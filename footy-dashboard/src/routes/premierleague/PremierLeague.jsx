@@ -1,7 +1,6 @@
 import "./style.css";
 
 import { useState, useEffect } from "react";
-import { Grid } from "@mui/material";
 
 import Haaland from "../../assets/images/premierleague/playerHaaland.png";
 
@@ -10,12 +9,12 @@ import Standings from "../../components/standings/Standings";
 import PageTitle from "../../components/pageTitle/PageTitle";
 import MainNotice from "../../components/news/MainNotice";
 import News from "../../components/news/News";
+import Matches from "../../components/macthes/Matches";
+import PlayerImage from "../../components/playerImage/PlayerImage";
 
 //imports api
 import usePremierLeague from "../../services/api/premierleague/usePremierLeague";
 
-import PlayerImage from "../../components/playerImage/PlayerImage";
-import Matches from "../../components/macthes/Matches";
 
 const PremierLeague = () => {
   //Request Standings
@@ -92,7 +91,28 @@ const PremierLeague = () => {
     }
   }, [getNews]);
 
-  console.log("noticias", news);
+  //Request Squadname
+  const [squadname, setSquadname] = useState([]);
+  const { getSquadname } = usePremierLeague();
+
+  useEffect(() => {
+    async function fetch() {
+      try {
+        const dados = await getSquadname();
+        setSquadname(dados);
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
+    function firstRequest() {
+      fetch();
+    }
+
+    if (firstRequest) {
+      firstRequest = false;
+      fetch();
+    }
+  }, [getSquadname]);
 
   //Request Fixtures
 
@@ -118,7 +138,7 @@ const PremierLeague = () => {
     }
   }, [getFixtures]);
 
-  // console.log("partidas", fixtures);
+  console.log("partidas", fixtures);
 
   //Request Results
 
@@ -146,29 +166,6 @@ const PremierLeague = () => {
 
   // console.log("resultados", results);
 
-  //Request Squadname
-  const [squadname, setSquadname] = useState([]);
-  const { getSquadname } = usePremierLeague();
-
-  useEffect(() => {
-    async function fetch() {
-      try {
-        const dados = await getSquadname();
-        setSquadname(dados);
-      } catch (error) {
-        console.log(error.message);
-      }
-    }
-    function firstRequest() {
-      fetch();
-    }
-
-    if (firstRequest) {
-      firstRequest = false;
-      fetch();
-    }
-  }, [getSquadname]);
-
   return (
     <div className="main-container">
       <PageTitle title="Premier League" />
@@ -185,7 +182,7 @@ const PremierLeague = () => {
       </div>
 
       <div className="downner-container">
-        <Matches />
+        <Matches results={results} fixtures={fixtures} />
         <Standings data={standing} title="Premier League" />
       </div>
     </div>

@@ -3,8 +3,6 @@
 .main-news-container {
     width: 99%;
     height: 400px;
-    background-image: url("../../assets/images/example.png");
-    /* background-image: url(${data[0]?.Image}); */
     border-radius: 15px;
     position: relative;
     display: flex;
@@ -26,6 +24,11 @@
     border-radius: 10px;
     color: whitesmoke;
     padding: 5px;
+}
+
+.main-news-content .main-news-title:hover {
+    background-color: #000000;
+    transition: 0.3s;
 }
 
 /* MAIS NOTICIAS */
@@ -53,8 +56,6 @@
 .card-image {
     width: 30%;
     height: 130px;
-    background-image: url("../../assets/images/example.png");
-    /* background-image: url(${data[0]?.Image}); */
     border-radius: 15px;
     background-size: cover;
     background-position: center;
@@ -66,26 +67,15 @@
     flex-direction: column;
     justify-content: space-around;
     width: 65%;
-    background-color: transparent;
+    background-color: white;
     align-content: flex-start;
     text-align: start;
 }
 
 .news-title {
-    background-color: transparent;
+    background-color: white;
 }
 
-.read-news-button {
-    width: 100px;
-    background-color: rgb(226, 224, 224);
-    padding: 0.5rem;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-}
-
-.read-news-button:hover {
-    background-color: rgb(29, 29, 29);
-    color: white;
-    transition: 0.3s;
+.news-title:hover {
+    color: dimgray;
 }
