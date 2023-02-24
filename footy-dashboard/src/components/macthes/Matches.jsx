@@ -1,5 +1,5 @@
 import "./styles.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 //import components
 import Fixtures from "./Fixtures";
@@ -22,12 +22,12 @@ const Matches = ({ results = [], fixtures = [] }) => {
   return (
     <div value={value} className="matches-container">
       <div className="tab-buttons">
-        <button onClick={handleResults} value="1">
-          <h3>Results</h3>
-        </button>
-        <button onClick={handleFixtures} value="2">
-          <h3>Fixtures</h3>
-        </button>
+        <div className="button" onClick={handleResults} value="1">
+          Results
+        </div>
+        <div className="button" onClick={handleFixtures} value="2">
+          Fixtures
+        </div>
       </div>
       <div className="renderized-area">
         {value === "1" ? (

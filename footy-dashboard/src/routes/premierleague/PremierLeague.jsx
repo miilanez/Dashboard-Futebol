@@ -43,27 +43,27 @@ const PremierLeague = () => {
 
   //Request Transfers
 
-  const [transfers, setTransfer] = useState([]);
-  const { getTransfers } = usePremierLeague();
+  // const [transfers, setTransfer] = useState([]);
+  // const { getTransfers } = usePremierLeague();
 
-  useEffect(() => {
-    async function fetch() {
-      try {
-        const dados = await getTransfers();
-        setTransfer(dados);
-      } catch (error) {
-        console.log(error.message);
-      }
-    }
-    function firstRequest() {
-      fetch();
-    }
+  // useEffect(() => {
+  //   async function fetch() {
+  //     try {
+  //       const dados = await getTransfers();
+  //       setTransfer(dados);
+  //     } catch (error) {
+  //       console.log(error.message);
+  //     }
+  //   }
+  //   function firstRequest() {
+  //     fetch();
+  //   }
 
-    if (firstRequest) {
-      firstRequest = false;
-      fetch();
-    }
-  }, [getTransfers]);
+  //   if (firstRequest) {
+  //     firstRequest = false;
+  //     fetch();
+  //   }
+  // }, [getTransfers]);
 
   // console.log("tranferencias", transfers)
 
@@ -92,27 +92,27 @@ const PremierLeague = () => {
   }, [getNews]);
 
   //Request Squadname
-  const [squadname, setSquadname] = useState([]);
-  const { getSquadname } = usePremierLeague();
+  // const [squadname, setSquadname] = useState([]);
+  // const { getSquadname } = usePremierLeague();
 
-  useEffect(() => {
-    async function fetch() {
-      try {
-        const dados = await getSquadname();
-        setSquadname(dados);
-      } catch (error) {
-        console.log(error.message);
-      }
-    }
-    function firstRequest() {
-      fetch();
-    }
+  // useEffect(() => {
+  //   async function fetch() {
+  //     try {
+  //       const dados = await getSquadname();
+  //       setSquadname(dados);
+  //     } catch (error) {
+  //       console.log(error.message);
+  //     }
+  //   }
+  //   function firstRequest() {
+  //     fetch();
+  //   }
 
-    if (firstRequest) {
-      firstRequest = false;
-      fetch();
-    }
-  }, [getSquadname]);
+  //   if (firstRequest) {
+  //     firstRequest = false;
+  //     fetch();
+  //   }
+  // }, [getSquadname]);
 
   //Request Fixtures
 
@@ -137,8 +137,6 @@ const PremierLeague = () => {
       fetch();
     }
   }, [getFixtures]);
-
-  console.log("partidas", fixtures);
 
   //Request Results
 
