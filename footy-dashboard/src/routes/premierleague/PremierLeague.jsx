@@ -2,7 +2,8 @@ import "../style.css";
 
 import { useState, useEffect } from "react";
 
-import Haaland from "../../assets/images/premierleague/playerHaaland.png";
+import Haaland from "../../assets/images/players/playerHaaland.png";
+import premierLeagueLogo from "../../assets/images/logos/premierLeague.png"
 
 //imports components
 import Standings from "../../components/standings/Standings";
@@ -138,7 +139,7 @@ const PremierLeague = () => {
     }
   }, [getFixtures]);
 
-  console.log("fixtures", fixtures)
+  // console.log("fixtures", fixtures)
 
   //Request Results
 
@@ -164,14 +165,13 @@ const PremierLeague = () => {
     }
   }, [getResults]);
 
-  console.log("resultados", results);
+  // console.log("resultados", results);
 
   return (
     <div className="main-container">
-      <PageTitle title="Premier League" />
       <div className="upper-container">
-        <div className="player-league-img">
-          <PlayerImage playerImg={Haaland} />
+        <div>
+        <PageTitle title="Premier League" logoLeague={premierLeagueLogo} />
         </div>
         <div>
           <MainNotice data={news} />

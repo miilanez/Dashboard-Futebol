@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.css";
 
-import Example from "../../assets/images/example.png";
+// import Example from "../../assets/images/example.png";
 
 const MainNotice = ({ data = [] }) => {
   return (

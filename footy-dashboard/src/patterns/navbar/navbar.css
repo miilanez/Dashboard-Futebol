@@ -1,9 +1,10 @@
 #navbar {
+    max-width: 2000px;
     height: 6rem;
     padding: 1rem 5rem;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 #navbar ul {

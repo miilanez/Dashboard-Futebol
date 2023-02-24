@@ -1,10 +1,10 @@
 import React from "react";
 import "./styles.css";
 
-const PlayerImage = ({ playerImg }) => {
+const PlayerImage = ({ playerImg, color }) => {
   return (
     <div className="image-container">
-      <img src={playerImg} />
+      <img src={playerImg} style={{backgroundColor:{color}}} />
     </div>
   );
 };

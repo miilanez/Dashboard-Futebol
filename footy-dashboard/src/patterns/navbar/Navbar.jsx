@@ -10,7 +10,7 @@ const Navbar = () => {
     setActiveLink(link);
   };
   return (
-    <div>
+    <div >
       <nav id="navbar">
         <ul>
           <li>
