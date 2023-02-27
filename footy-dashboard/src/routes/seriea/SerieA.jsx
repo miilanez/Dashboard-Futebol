@@ -1,9 +1,10 @@
-import "../style.css";
+import "./style.css";
+import "../mainStyles.css";
 
 import { useState, useEffect } from "react";
 
 import Lukaku from "../../assets/images/players/playerLukaku.png";
-import SerieALogo from "../../assets/images/logos/serieA.png"
+import SerieALogo from "../../assets/images/logos/serieA.png";
 
 //imports components
 import Standings from "../../components/standings/Standings";
@@ -15,7 +16,6 @@ import PlayerImage from "../../components/playerImage/PlayerImage";
 
 //imports api
 import useSerieA from "../../services/api/seriea/useSerieA";
-
 
 const SerieA = () => {
   //Request Standings
@@ -168,23 +168,24 @@ const SerieA = () => {
   // console.log("resultados", results);
 
   return (
-    <div className="main-container">
-      <PageTitle title="Serie A" logoLeague={SerieALogo} />
-      <div className="upper-container">
-        <div className="player-league-img">
-          <PlayerImage playerImg={Lukaku} />
+    <div className="page seriea">
+      <div className="main-container">
+        <div className="upper-container">
+          <div>
+            <PageTitle title="Serie A" logoLeague={SerieALogo} />
+          </div>
+          <div>
+            <MainNotice data={news} />
+          </div>
+          <div>
+            <News data={news} />
+          </div>
         </div>
-        <div>
-          <MainNotice data={news} />
-        </div>
-        <div>
-          <News data={news} />
-        </div>
-      </div>
 
-      <div className="downner-container">
-        <Matches results={results} fixtures={fixtures} />
-        <Standings data={standing} title="Serie A" />
+        <div className="downner-container">
+          <Matches results={results} fixtures={fixtures} />
+          <Standings data={standing} title="Serie A" />
+        </div>
       </div>
     </div>
   );

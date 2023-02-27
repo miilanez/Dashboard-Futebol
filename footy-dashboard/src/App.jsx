@@ -8,11 +8,9 @@ import Footer from "./patterns/footer/Footer";
 function App() {
   return (
     <div className="main-app">
-      <div>
-        <Navbar />
-        <div className="main-container">
-          <Outlet />
-        </div>
+      <Navbar />
+      <div className="page">
+        <Outlet />
         <Footer />
       </div>
     </div>

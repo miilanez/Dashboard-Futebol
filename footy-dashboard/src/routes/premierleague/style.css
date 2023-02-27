@@ -1,0 +1,7 @@
+.premier {
+    background-image: url("../../assets/images/backgrounds/bg-premierLeague.png");
+    background-size: cover;
+    background-position: top left;
+    background-repeat: repeat-y;
+    background-repeat: no-repeat;
+}

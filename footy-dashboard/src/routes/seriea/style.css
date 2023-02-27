@@ -1,0 +1,11 @@
+.page {
+    width: 100%;
+}
+
+.seriea {
+    background-image: url("../../assets/images/backgrounds/bg-seriea.png");
+    background-size: cover;
+    background-position: top left;
+    background-repeat: repeat-y;
+    background-repeat: no-repeat;
+}

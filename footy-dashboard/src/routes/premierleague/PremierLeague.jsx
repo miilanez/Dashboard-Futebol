@@ -1,9 +1,9 @@
-import "../style.css";
+import "./style.css";
+import "../mainStyles.css";
 
 import { useState, useEffect } from "react";
 
-import Haaland from "../../assets/images/players/playerHaaland.png";
-import premierLeagueLogo from "../../assets/images/logos/premierLeague.png"
+import premierLeagueLogo from "../../assets/images/logos/premierLeague.png";
 
 //imports components
 import Standings from "../../components/standings/Standings";
@@ -11,11 +11,9 @@ import PageTitle from "../../components/pageTitle/PageTitle";
 import MainNotice from "../../components/news/MainNotice";
 import News from "../../components/news/News";
 import Matches from "../../components/macthes/Matches";
-import PlayerImage from "../../components/playerImage/PlayerImage";
 
 //imports api
 import usePremierLeague from "../../services/api/premierleague/usePremierLeague";
-
 
 const PremierLeague = () => {
   //Request Standings
@@ -168,22 +166,24 @@ const PremierLeague = () => {
   // console.log("resultados", results);
 
   return (
-    <div className="main-container">
-      <div className="upper-container">
-        <div>
-        <PageTitle title="Premier League" logoLeague={premierLeagueLogo} />
+    <div className="page premier">
+      <div className="main-container">
+        <div className="upper-container">
+          <div>
+            <PageTitle title="Premier League" logoLeague={premierLeagueLogo} />
+          </div>
+          <div>
+            <MainNotice data={news} />
+          </div>
+          <div>
+            <News data={news} />
+          </div>
         </div>
-        <div>
-          <MainNotice data={news} />
-        </div>
-        <div>
-          <News data={news} />
-        </div>
-      </div>
 
-      <div className="downner-container">
-        <Matches results={results} fixtures={fixtures} />
-        <Standings data={standing} title="Premier League" />
+        <div className="downner-container">
+          <Matches results={results} fixtures={fixtures} />
+          <Standings data={standing} title="Premier League" />
+        </div>
       </div>
     </div>
   );

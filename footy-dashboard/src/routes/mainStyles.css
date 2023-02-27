@@ -1,0 +1,23 @@
+.page {
+    width: 100%;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 5rem;
+}
+
+.upper-container {
+    display: grid;
+    grid-template-columns: 1fr 3.5fr;
+    column-gap: 1rem;
+    margin: 1rem 0 1rem 0;
+}
+
+.downner-container {
+    display: grid;
+    grid-template-columns: 1.7fr 1fr;
+    column-gap: 1rem;
+    margin: 1rem 0 1rem 0;
+}

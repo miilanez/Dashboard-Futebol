@@ -9,7 +9,7 @@ const News = ({ data = [] }) => {
       <div className="notices">
         {/* {data &&
           notices.map((index) => ( */}
-        <div className="card-news">
+        <div className="card-news-destaqued">
           <div
             className="card-image"
             style={{ backgroundImage: `url(${data[1]?.Image})` }}
