@@ -14,8 +14,15 @@ import Matches from "../../components/macthes/Matches";
 
 //imports api
 import usePremierLeague from "../../services/api/premierleague/usePremierLeague";
+import Loading from "../../patterns/loading/Loading";
 
 const PremierLeague = () => {
+  //Tempo de Requisição
+  const timeRefresh = 6000000;
+
+  //loading
+  const [loading, setLoading] = useState(false);
+
   //Request Standings
 
   const [standing, setStanding] = useState([]);
@@ -23,11 +30,14 @@ const PremierLeague = () => {
 
   useEffect(() => {
     async function fetch() {
+      setLoading(true);
       try {
         const dados = await getStandings();
         setStanding(dados);
+        setLoading(false);
       } catch (error) {
         console.log(error.message);
+        setLoading(false);
       }
     }
     function firstRequest() {
@@ -38,6 +48,9 @@ const PremierLeague = () => {
       firstRequest = false;
       fetch();
     }
+
+    const interval = setInterval(fetch, timeRefresh); //60s
+    return () => clearInterval(interval);
   }, [getStandings]);
 
   //Request Transfers
@@ -73,11 +86,14 @@ const PremierLeague = () => {
 
   useEffect(() => {
     async function fetch() {
+      setLoading(true);
       try {
         const dados = await getNews();
         setNews(dados);
+        setLoading(false);
       } catch (error) {
         console.log(error.message);
+        setLoading(false);
       }
     }
     function firstRequest() {
@@ -88,6 +104,9 @@ const PremierLeague = () => {
       firstRequest = false;
       fetch();
     }
+
+    const interval = setInterval(fetch, timeRefresh); //60s
+    return () => clearInterval(interval);
   }, [getNews]);
 
   //Request Squadname
@@ -120,11 +139,14 @@ const PremierLeague = () => {
 
   useEffect(() => {
     async function fetch() {
+      setLoading(true);
       try {
         const dados = await getFixtures();
         setFixtures(dados);
+        setLoading(false);
       } catch (error) {
         console.log(error.message);
+        setLoading(false);
       }
     }
     function firstRequest() {
@@ -135,6 +157,9 @@ const PremierLeague = () => {
       firstRequest = false;
       fetch();
     }
+
+    const interval = setInterval(fetch, timeRefresh); //60s
+    return () => clearInterval(interval);
   }, [getFixtures]);
 
   // console.log("fixtures", fixtures)
@@ -146,11 +171,14 @@ const PremierLeague = () => {
 
   useEffect(() => {
     async function fetch() {
+      setLoading(true);
       try {
         const dados = await getResults();
         setResults(dados);
+        setLoading(false);
       } catch (error) {
         console.log(error.message);
+        setLoading(false);
       }
     }
     function firstRequest() {
@@ -161,30 +189,40 @@ const PremierLeague = () => {
       firstRequest = false;
       fetch();
     }
+
+    const interval = setInterval(fetch, timeRefresh); //60s
+    return () => clearInterval(interval);
   }, [getResults]);
 
   // console.log("resultados", results);
 
   return (
     <div className="page premier">
-      <div className="main-container">
-        <div className="upper-container">
-          <div>
-            <PageTitle title="Premier League" logoLeague={premierLeagueLogo} />
+      {loading ? (
+        <Loading />
+      ) : (
+        <div className="main-container">
+          <div className="upper-container">
+            <div>
+              <PageTitle
+                title="Premier League"
+                logoLeague={premierLeagueLogo}
+              />
+            </div>
+            <div>
+              <MainNotice data={news} />
+            </div>
+            <div>
+              <News data={news} />
+            </div>
           </div>
-          <div>
-            <MainNotice data={news} />
-          </div>
-          <div>
-            <News data={news} />
-          </div>
-        </div>
 
-        <div className="downner-container">
-          <Matches results={results} fixtures={fixtures} />
-          <Standings data={standing} title="Premier League" />
+          <div className="downner-container">
+            <Matches results={results} fixtures={fixtures} />
+            <Standings data={standing} title="Premier League" />
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

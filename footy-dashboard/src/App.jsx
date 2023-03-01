@@ -11,8 +11,8 @@ function App() {
       <Navbar />
       <div className="page">
         <Outlet />
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 }
