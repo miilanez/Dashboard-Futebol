@@ -3,7 +3,6 @@ import "../mainStyles.css";
 
 import { useState, useEffect } from "react";
 
-import Lukaku from "../../assets/images/players/playerLukaku.png";
 import SerieALogo from "../../assets/images/logos/serieA.png";
 
 //imports components
@@ -12,12 +11,18 @@ import PageTitle from "../../components/pageTitle/PageTitle";
 import MainNotice from "../../components/news/MainNotice";
 import News from "../../components/news/News";
 import Matches from "../../components/macthes/Matches";
-import PlayerImage from "../../components/playerImage/PlayerImage";
 
 //imports api
 import useSerieA from "../../services/api/seriea/useSerieA";
+import Loading from "../../patterns/loading/Loading";
 
 const SerieA = () => {
+  //Tempo de Requisição
+  const timeRefresh = 6000000;
+
+  //loading
+  const [loading, setLoading] = useState(false);
+
   //Request Standings
 
   const [standing, setStanding] = useState([]);
@@ -25,11 +30,14 @@ const SerieA = () => {
 
   useEffect(() => {
     async function fetch() {
+      setLoading(true);
       try {
         const dados = await getStandings();
         setStanding(dados);
+        setLoading(false);
       } catch (error) {
         console.log(error.message);
+        setLoading(false);
       }
     }
     function firstRequest() {
@@ -40,6 +48,9 @@ const SerieA = () => {
       firstRequest = false;
       fetch();
     }
+
+    const interval = setInterval(fetch, timeRefresh); //60s
+    return () => clearInterval(interval);
   }, [getStandings]);
 
   //Request Transfers
@@ -75,11 +86,14 @@ const SerieA = () => {
 
   useEffect(() => {
     async function fetch() {
+      setLoading(true);
       try {
         const dados = await getNews();
         setNews(dados);
+        setLoading(false);
       } catch (error) {
         console.log(error.message);
+        setLoading(false);
       }
     }
     function firstRequest() {
@@ -90,6 +104,9 @@ const SerieA = () => {
       firstRequest = false;
       fetch();
     }
+
+    const interval = setInterval(fetch, timeRefresh); //60s
+    return () => clearInterval(interval);
   }, [getNews]);
 
   //Request Squadname
@@ -122,11 +139,14 @@ const SerieA = () => {
 
   useEffect(() => {
     async function fetch() {
+      setLoading(true);
       try {
         const dados = await getFixtures();
         setFixtures(dados);
+        setLoading(false);
       } catch (error) {
         console.log(error.message);
+        setLoading(false);
       }
     }
     function firstRequest() {
@@ -137,6 +157,9 @@ const SerieA = () => {
       firstRequest = false;
       fetch();
     }
+
+    const interval = setInterval(fetch, timeRefresh); //60s
+    return () => clearInterval(interval);
   }, [getFixtures]);
 
   // console.log("fixtures", fixtures)
@@ -148,11 +171,14 @@ const SerieA = () => {
 
   useEffect(() => {
     async function fetch() {
+      setLoading(true);
       try {
         const dados = await getResults();
         setResults(dados);
+        setLoading(false);
       } catch (error) {
         console.log(error.message);
+        setLoading(false);
       }
     }
     function firstRequest() {
@@ -163,30 +189,40 @@ const SerieA = () => {
       firstRequest = false;
       fetch();
     }
+
+    const interval = setInterval(fetch, timeRefresh); //60s
+    return () => clearInterval(interval);
   }, [getResults]);
 
   // console.log("resultados", results);
 
   return (
     <div className="page seriea">
-      <div className="main-container">
-        <div className="upper-container">
-          <div>
-            <PageTitle title="Serie A" logoLeague={SerieALogo} />
+      {loading ? (
+        <Loading />
+      ) : (
+        <div className="main-container">
+          <div className="upper-container">
+            <div>
+              <PageTitle
+                title="Serie A"
+                logoLeague={SerieALogo}
+              />
+            </div>
+            <div>
+              <MainNotice data={news} />
+            </div>
+            <div>
+              <News data={news} />
+            </div>
           </div>
-          <div>
-            <MainNotice data={news} />
-          </div>
-          <div>
-            <News data={news} />
-          </div>
-        </div>
 
-        <div className="downner-container">
-          <Matches results={results} fixtures={fixtures} />
-          <Standings data={standing} title="Serie A" />
+          <div className="downner-container">
+            <Matches results={results} fixtures={fixtures} />
+            <Standings data={standing} title="Serie A" />
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
