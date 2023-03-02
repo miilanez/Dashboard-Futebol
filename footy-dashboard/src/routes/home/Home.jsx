@@ -20,16 +20,16 @@ const Home = () => {
           <div className="content-left"></div>
           <div className="content-right">
             <div className="sobre">
-              <h1>Futebol em tempo real</h1>
-              <h3>
+              <h1 className="text-color">Futebol em tempo real</h1>
+              <h3 className="text-color">
                 Esta aplicação fornece dados dos principais campeonatos de
                 futebol do planeta.
               </h3>
-              <h3>
+              <h3 className="text-color">
                 Dados dos torneios, partidas jogadas, próxima rodada, notícias
                 das ligas e mais.
               </h3>
-              <h4>
+              <h4 className="text-color">
                 Todos os dados são retornados da Football API do Giuliano
                 Crescimbeni.
               </h4>
