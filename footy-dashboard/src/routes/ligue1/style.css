@@ -17,3 +17,11 @@
     column-gap: 1rem;
     margin: 1rem 0 1rem 0;
 }
+
+.ligueone {
+    background-image: url("../../assets/images/backgrounds/bg-ligueOne.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat-y;
+    background-repeat: no-repeat;
+}
