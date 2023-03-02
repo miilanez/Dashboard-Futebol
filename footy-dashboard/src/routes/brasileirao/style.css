@@ -1,19 +1,7 @@
-.main-container {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem 5rem;
-}
-
-.upper-container {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1.5fr;
-    column-gap: 1rem;
-    margin: 1rem 0 1rem 0;
-}
-
-.downner-container {
-    display: grid;
-    grid-template-columns: 1.7fr 1fr;
-    column-gap: 1rem;
-    margin: 1rem 0 1rem 0;
+.brasileirao {
+    background-image: url("../../assets/images/backgrounds/bg-brasileirao.png");
+    background-size: cover;
+    background-position: top left;
+    background-repeat: repeat-y;
+    background-repeat: no-repeat;
 }
