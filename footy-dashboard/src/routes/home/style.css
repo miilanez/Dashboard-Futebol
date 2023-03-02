@@ -1,0 +1,49 @@
+.home {}
+
+.main {
+    width: 100%;
+    height: 900px;
+    padding: 8rem;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.637), rgba(0, 0, 0, .45)100%), url("../../assets/images/backgrounds/461560.jpg");
+    background-size: cover;
+    background-position: bottom left;
+    background-repeat: no-repeat;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    /* padding: 2rem; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content-left, .content-right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-right {
+    background-color: rgba(0, 0, 0, 0.74);
+    border-radius: 15px;
+    padding: 2rem;
+}
+
+.content-right h1, h2, h3, h4 {
+    color: white;
+    margin-bottom: 5px;
+}
+
+.league-logos {
+    padding: 1rem 0;
+}
+
+.league-logos img {
+    margin: 10px;
+    width: 90px;
+    height: 120px;
+}
+

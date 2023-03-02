@@ -3,8 +3,18 @@
     height: 6rem;
     padding: 1rem 5rem;
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+}
+
+.logo {
+    align-items: center;
+    margin-right: 3rem;
+}
+
+.logo img {
+    width: 70px;
 }
 
 #navbar ul {
