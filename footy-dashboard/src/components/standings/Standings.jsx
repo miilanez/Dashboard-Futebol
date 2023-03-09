@@ -1,11 +1,14 @@
 import * as React from "react";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell  from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
+import {
+  Box,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+} from "@mui/material";
 
 const columns = [
   {
@@ -96,24 +99,42 @@ export default function Standings({ data = [], title }) {
               ))}
             </TableRow>
           </TableHead>
-          <TableBody>
-            {data?.map((row) => (
-              <TableRow hover role="checkbox" tabIndex={-1} key={row.name}>
-                {columns.map(({ field, render }) => (
-                  <TableCell
-                    align="center"
-                    sx={{
-                      backgroundColor: "white",
-                      fontFamily: "Poppins",
-                      fontSize: 15,
-                      cursor: "pointer",
-                    }}
-                  >
-                    {!!render ? render(row) : row?.[field]}
-                  </TableCell>
-                ))}
-              </TableRow>
-            ))}
+          <TableBody sx={{ position: "relative", height: "250px", alignItems: "center" }}>
+            {!!data.length ? (
+              data?.map((row) => (
+                <TableRow hover role="checkbox" tabIndex={-1} key={row.name}>
+                  {columns.map(({ field, render }) => (
+                    <TableCell
+                      align="center"
+                      sx={{
+                        backgroundColor: "white",
+                        fontFamily: "Poppins",
+                        fontSize: 15,
+                        cursor: "pointer",
+                      }}
+                    >
+                      {!!render ? render(row) : row?.[field]}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))
+            ) : (
+              <>
+                <Box
+                  sx={{
+                    position: "absolute",
+                    width: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    top: "6.5rem"
+                  }}
+                >
+                  Ainda não há dados a serem exibidos.
+                </Box>
+              </>
+            )}
           </TableBody>
         </Table>
       </TableContainer>

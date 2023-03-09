@@ -12,8 +12,8 @@ const Navbar = () => {
     setActiveLink(link);
   };
   return (
-    <div>
-      <nav id="navbar">
+    <div className="nav-container">
+      <nav className="navbar">
         <div className="logo">
           <Link to="/" exact>
             <img src={logoDashboard} />
