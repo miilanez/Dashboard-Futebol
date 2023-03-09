@@ -99,7 +99,7 @@ export default function Standings({ data = [], title }) {
               ))}
             </TableRow>
           </TableHead>
-          <TableBody sx={{ position: "relative", height: "250px", alignItems: "center" }}>
+          <TableBody sx={{ position: "relative", height: "400px", alignItems: "center" }}>
             {!!data.length ? (
               data?.map((row) => (
                 <TableRow hover role="checkbox" tabIndex={-1} key={row.name}>
@@ -128,10 +128,10 @@ export default function Standings({ data = [], title }) {
                     flexDirection: "column",
                     justifyContent: "center",
                     alignItems: "center",
-                    top: "6.5rem"
+                    top: "12rem"
                   }}
                 >
-                  Ainda não há dados a serem exibidos.
+                  There is no data to display.
                 </Box>
               </>
             )}

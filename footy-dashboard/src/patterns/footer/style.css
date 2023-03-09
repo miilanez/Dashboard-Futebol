@@ -2,9 +2,6 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-}
-
-.footer-content {
-    padding: 2rem;
-    /* color: #fff; */
+    bottom: 1px;
+    position: fixed;
 }
