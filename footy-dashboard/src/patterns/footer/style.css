@@ -5,3 +5,7 @@
     bottom: 1px;
     position: fixed;
 }
+
+.footer-content a {
+    font-weight: 600;
+}
