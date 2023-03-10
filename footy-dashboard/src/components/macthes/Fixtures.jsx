@@ -13,9 +13,28 @@ const Fixtures = ({ data = [] }) => {
     <div className="container-results">
       <h2 className="results-title">Next Fixtures</h2>
       <TableContainer component={Paper} sx={{ maxHeight: 349 }}>
-        {matchday?.map((match) => (
-          <Match data={match} />
-        ))}
+      {!!matchday?.length ? (
+        <TableContainer component={Paper} sx={{ maxHeight: 349 }}>
+          {matchday?.map((match) => (
+            <Match data={match} />
+          ))}
+        </TableContainer>
+      ) : (
+        <>
+          <Box
+            sx={{
+              width: "100%",
+              height: 300,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            There is no data to display.
+          </Box>
+        </>
+      )}
       </TableContainer>
     </div>
   );
